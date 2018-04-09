@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">
+			{{indicador.unidade.nome}} / {{indicador.unidade.sigla}}
+		</h3>
+	</div>
+</div>
+
+<div class="row" ng-controller="indicadorController">
+	<div class="col-lg-8">
+		<div uib-alert ng-repeat="p in dataPendencias.pendencias" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">
+			{{p.titulo}}
+			{{p.mensagem}}
+		</div>
+		<form name="outerForm" class="tab-form-demo">
+			<uib-tabset active="activeForm"> 
+				<uib-tab index="0" heading="Indicador"> 
+					<ng-form name="indicadorForm">
+						<br/>
+						<div class="form-group">
+							<label>{{indicador.perspectiva.descricao}}</label> 
+						</div>
+						
+					  	<div class="form-group">
+							<label>Objetivo Estratégico</label> 
+							<textarea class="form-control" readonly="readonly" required ng-model="indicador.objetivoEstrategico.descricao"></textarea>
+						</div>
+
+						<div class="form-group">
+							<label>Nome</label> 
+							<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.nome" />
+						</div>
+						
+						<div class="form-group">
+							<label>Descrição</label> 
+							<textarea class="form-control" rows="5" readonly="readonly" required ng-model="indicador.descricao"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label>Responsável</label> 
+							<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.responsavel" />
+						</div>
+						
+						
+					</ng-form> 
+				</uib-tab> 
+				<uib-tab heading="Dados"> 
+					<br/>
+					<div class="form-group">
+						<label>Peso</label> 
+						<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.peso" />
+					</div>
+					
+					<div class="form-group">
+						<label>Mecanismo de Controle</label> 
+						<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.mecanismocontrole" />
+					</div>
+					
+					<div class="form-group">
+						<label>Fonte de Dados</label> 
+						<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.fontedados" />
+					</div>
+					<div class="form-group">
+						<label>Fórmula de Cálculo</label> 
+						<input type="text" class="form-control" readonly="readonly" required ng-model="indicador.formulacalculo" />
+					</div>
+				</uib-tab>
+				
+			</uib-tabset>
+		</form>
+		<button value="Voltar" class="btn btn-primary btn-lg" onclick="history.back()">Voltar</button>
+	</div>
+	
+	<div class="col-lg-4">
+		<uib-tabset active="activeForm2"> 
+				<uib-tab index="0" heading="Resultados"> 
+				 	<form class="form-inline">
+						<ul class="list-group">
+						 	<li class="list-group-item">
+						 		<input type="text" class="form-control" value="#" 	disabled="disabled" size="1" readonly="readonly"/>
+						    	<input type="text" class="form-control" value="Real" disabled="disabled" size="3"/>
+						    	<input type="text" class="form-control" value="Meta" disabled="disabled" size="3"/>
+						 	</li>
+						    <li ng-repeat="a in indicador.acompanhamentos" class="list-group-item">
+						    	<input type="text" class="form-control" value="{{a.indice + 1}}" size="1" readonly="readonly"/>
+						    	<input type="text" class="form-control" ng-model="a.valorreal"  size="3" readonly="readonly"/>
+						    	<input type="text" class="form-control" ng-model="a.valorlimitesuperior"  size="3" readonly="readonly"/>
+						    	<input type="checkbox" class="form-control" ng-checked="!a.naoaplicavel" style="width: 40px; height: 50px;"  disabled="disabled"/>
+						    </li>
+						    <li class="list-group-item">
+						    	<strong>
+						 		<input type="text" class="form-control" value="Total" 	disabled="disabled" size="1" readonly="readonly"/>
+							    	<input type="text" class="form-control" ng-model="indicador.valorRealTotal" disabled="disabled" size="3"/>
+							    	<input type="text" class="form-control" ng-model="indicador.metasToText" disabled="disabled" size="3"/>
+							    	<input type="checkbox" class="form-control" checked="checked" style="width: 40px; height: 50px;" disabled="disabled"/>
+							    	<span class="fa fa-warning fa-3x" 
+							    		ng-class="{'text-success': indicador.relacaoMetaReal >= 0.85, 'text-danger': indicador.relacaoMetaReal < 0.85}" 
+							    		style="position:absolute; bottom:15px; padding-left: 5px;"></span>
+						    	</strong>  
+						 	</li>
+						 </ul>
+				  	</form>
+				  	<uib-progressbar 
+				  		class="progress-striped active" max="indicador.valorMetaSuperiorTotal" value="indicador.valorRealTotal" 
+				  		type="progressBarType(indicador)" style="height:30px;">
+				  		<i>{{indicador.valorRealTotal}} / {{indicador.valorMetaSuperiorTotal}}</i>
+				  	</uib-progressbar>
+			  </uib-tab>
+		</uib-tabset>
+	</div>
+</div>

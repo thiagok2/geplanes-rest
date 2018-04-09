@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<div class="row">
+   <div class="col-lg-12">
+       <h1 class="page-header">
+       	<i class="fa  fa-building-o fa-2x"></i>
+        
+       {{resumo.unidade.nome}}
+      
+       </h1>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+   <!-- /.row -->
+<div class="row">
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-primary">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-tasks fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.indicadoresCount}}
+                       </div>
+                       <div>Indicadores</div>
+                   </div>
+               </div>
+           </div>
+           <div>
+               <div class="panel-footer">
+                   <span class="pull-left"></span>
+                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                   <div class="clearfix"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-green">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-thumbs-o-up fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countConcluidoSucesso}}
+                       </div>
+                       <div>Sucesso</div>
+                   </div>
+               </div>
+           </div>
+           <div class="panel-footer">
+               <span class="pull-left hide"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div>
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-yellow">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-thumbs-o-down fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countConcluidoInsucesso}}
+                       </div>
+                       <div>Insucesso</div>
+                   </div>
+               </div>
+           </div>     
+           <div class="panel-footer">
+               <span class="pull-left hide"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div> 
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-gray">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-flash planejamento fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.taxaPlanejamento}}
+                       </div>
+                       <div>Taxa de Planejamento</div>
+                   </div>
+               </div>
+           </div>
+           <div class="panel-footer">
+               <span class="pull-left"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div>    
+       </div>
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-red">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-times-circle fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countPendencias}}
+                       </div>
+                       <div>Pendências</div>
+                   </div>
+               </div>
+           </div>
+           <div class="panel-footer">
+               <span class="pull-left hide"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div>
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-red">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-table fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countPendenciasPlanejamento}}
+                       </div>
+                       <div>Planejamento</div>
+                   </div>
+               </div>
+           </div>
+           <div class="panel-footer">
+               <span class="pull-left hide"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div>    
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-red">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-clock-o fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countPendenciasPrazo}}
+                       </div>
+                       <div>Prazo</div>
+                   </div>
+               </div>
+           </div>
+         <div class="panel-footer">
+             <span class="pull-left hide"></span>
+             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+             <div class="clearfix"></div>
+         </div> 
+       </div>
+   </div>
+   <div class="col-lg-3 col-md-6">
+       <div class="panel panel-red">
+           <div class="panel-heading">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-sign-out fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge">
+                       		{{resumo.countPendenciasResultado}}
+                       </div>
+                       <div>Resultados</div>
+                   </div>
+               </div>
+           </div>
+           
+           <div class="panel-footer">
+               <span class="pull-left hide"></span>
+               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+               <div class="clearfix"></div>
+           </div>
+           
+       </div>
+   </div>
+</div>
+
+
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-9">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Indicadores por Campus
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="morris-bar-chart"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Resultados por Campus 
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                 	<tr>
+                                        <th rowspan="2">Unidade</th>
+                                        <th colspan="3" style="text-align: center;">Indicadores</th>
+                                        <th colspan="2" style="text-align: center;">Planos de Ação</th>
+                                    </tr>
+                                    <tr>
+                                   
+                                        <th>Total</th>
+                                        <th>Concluídos</th>
+                                        <th>Atrasados</th>
+                                        <th>Total</th>
+                                        <th>Concluídos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="r in resumoUnidades" ng-class="{'active-row-table':r.unidade.id == resumo.unidade.id}">
+                                        <td>
+                                       		<a href="#dashboard/{{r.ano}}/{{r.unidade.id}}">
+                                       			{{r.unidade.nome}}
+                                       		</a>
+                                        </td>
+                                        <td>
+                                        	{{r.indicadoresCount}}
+                                        </td>
+                                        <td>
+                                        	{{r.countConcluidos}}
+                                        </td>
+                                        <td >
+                                        	{{r.countAtrasados}}
+                                        </td>
+                                        <td >
+                                        	{{r.countPlanosAcao}}
+                                        </td>
+                                        <td >
+                                        	{{r.countPlanosAcaoConcluidos}}
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+        <div class="panel panel-danger" ng-controller="unidadeController as uc">
+        
+            <div class="panel-heading">
+                <i class="fa fa-clock-o fa-fw"></i> Pendências ({{resumo.countPendencias}}) - {{resumo.unidade.nome}}
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+            	<input class="form-control" type="text" ng-model="queryPendencia" placeholder="Pesquisar por Responsável, Ação, Indicador...">
+                <ul class="timeline">
+                    <li ng-repeat="p in uc.dataPendencias | filter: queryPendencia" ng-class="{'timeline-inverted':p.planoAcao}" ng-click="uc.detalhes(p);" class="clickable">            
+                        <div ng-if="p.indicador" class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                        </div>
+                        
+                        <div ng-if="p.planoAcao" class="timeline-badge warning"><i class="fa fa-warning"></i>
+                        </div>
+                        
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">
+                                	<i ng-if="p.indicador" class="fa fa-key"></i>
+                                	<i ng-if="p.planoAcao" class="fa fa-tags"></i>
+                                	{{p.identificador}}
+                                	 - <small class="text-muted">{{p.data| date :  "dd.MM.yyyy"}}</small>
+                                </h4>
+                                
+                                <p><small class="text-muted">
+                                	<b>*{{p.tituloDemanda}}*</b>
+                                	<br/>
+                                	{{p.titulo}}.
+                                	{{p.mensagem}}</small>
+                                </p>
+                            </div>
+                            <div class="timeline-body">
+                                <p><small>
+                                {{p.resumo}}
+                                 <strong>{{p.responsavel}}</strong>
+                                 </small></p>
+                               
+                            </div>
+                        </div>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-8 -->
+    <div class="col-lg-3">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <i class="fa fa-bell fa-fw"></i> Resumo Desempenho
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-tasks fa-fw"></i> <strong>Indicadores</strong>
+                        <span class="pull-right text-muted">
+                        	{{resumo.indicadoresCount}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-clock-o fa-fw"></i> Planejados
+                        <span class="pull-right text-muted">
+                        	{{resumo.countEmPlanejamento}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-gears fa-fw"></i> Em Andamento
+                        <span class="pull-right text-muted">
+                        	{{resumo.countEmAndamento}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-warning fa-fw"></i> Atrasados
+                        <span class="pull-right text-muted">
+                        	{{resumo.countAtrasados}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-check-circle fa-fw"></i> Concluídos
+                        <span class="pull-right text-muted">
+                        	{{resumo.countConcluidos}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-up fa-fw"></i> Concluídos com Sucesso
+                        <span class="pull-right text-muted">
+                        	{{resumo.countConcluidoSucesso}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-down fa-fw"></i> Concluídos sem Sucesso
+                        <span class="pull-right text-muted">
+                        	{{resumo.countConcluidoInsucesso}}
+                        </span>
+                    </a>
+                    <!-- Iniciativas -->
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-tasks fa-fw"></i> <strong>Iniciativas</strong>
+                        <span class="pull-right text-muted">
+                        	{{resumo.countIniciativas}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-gears fa-fw"></i> Em Andamento
+                        <span class="pull-right text-muted">
+                        	{{resumo.countIniciativasAndamento}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-warning fa-fw"></i> Atrasadas
+                        <span class="pull-right text-muted">
+                        	{{resumo.countIniciativasAtrasadas}}
+                        </span>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-up fa-fw"></i> Concluídas
+                        <span class="pull-right text-muted">
+                        	{{resumo.countIniciativasConcluidas}}
+                        </span>
+                    </a>
+                    
+                    <!-- Planos de Ação -->
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-tasks fa-fw"></i> <strong>Planos de Ação</strong>
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPlanosAcao}}
+                        </span>
+                    </a>
+                      <a href="#" class="list-group-item">
+                        <i class="fa fa-gears fa-fw"></i> A iniciar
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPlanosAcaoPlanejados}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-gears fa-fw"></i> Em Andamento
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPlanosAcaoAndamento}}
+                        </span>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-up fa-fw"></i> Concluídos
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPlanosAcaoConcluidos}}
+                        </span>
+                    </a>
+                </div>
+               
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <div id="container-chart" ng-controller="chartController" ng-init="drawCharts()">
+	        <!-- /.panel -->
+	        <div class="panel panel-primary">
+	            <div class="panel-heading">
+	                <i class="fa fa-bar-chart-o fa-fw"></i>Status Indicadores
+	            </div>
+	            <div class="panel-body">
+	                <div id="morris-donut-chart"></div>
+	                <a href="#" class="btn btn-default btn-block hide">Detalhes</a>
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+	        
+	        <div class="panel panel-primary">
+	            <div class="panel-heading">
+	                <i class="fa fa-bar-chart-o fa-fw"></i>Resultados Indicadores
+	            </div>
+	            <div class="panel-body">
+	                <div id="morris-donut-chart2"></div>
+	                <a href="#" class="btn btn-default btn-block hide">Detalhes</a>
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+	        <!-- /.panel -->
+       	</div>
+        <!-- /.panel .chat-panel -->
+        
+        <div class="panel panel-warning" ng-controller="unidadeController as uc">
+            <div class="panel-heading">
+                <i class="fa fa-bell fa-fw"></i> Pendências em Números({{resumo.countPendencias}})
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-tasks fa-fw"></i> <strong>Nível</strong>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-clock-o fa-fw"></i> Alerta
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasAlerta}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-down fa-fw"></i> Avisos
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasAviso}}
+                        </span>
+                    </a> 
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-down fa-fw"></i> Info
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasInfo}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-tasks fa-fw"></i> <strong>Fase</strong>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <i class="fa fa-clock-o fa-fw"></i> Planejamento
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasPlanejamento}}
+                        </span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-down fa-fw"></i> Prazo
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasPrazo}}
+                        </span>
+                    </a> 
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-thumbs-o-down fa-fw"></i> Resultados
+                        <span class="pull-right text-muted">
+                        	{{resumo.countPendenciasResultado}}
+                        </span>
+                    </a>
+                    
+                </div>
+               
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+    <!-- /.col-lg-3 -->
+</div>
+<!-- /.row -->
+<div class="row" ng-controller="chartController" ng-init="drawChartLines()">
+	<div class="col-lg-6">
+		 <div class="panel panel-default graph-container">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Lançamento de Resultados - Unidade {{resumo.unidade.nome}}
+            </div>
+            <div id="area-acompahamento-chart" class="graph"></div>
+            
+         </div>
+	
+	</div>
+	<div class="col-lg-6">
+	<div class="panel panel-default graph-container">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Conclusão de Ações - Unidade {{resumo.unidade.nome}}
+            </div>
+              <div id="area-acao-chart" class="graph"></div>
+            
+         </div>
+	</div>
+</div>
+<script src="/js/data/morris-data.js"></script>

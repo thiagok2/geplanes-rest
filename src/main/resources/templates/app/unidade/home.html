@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+
+<div class="row">
+   <div class="col-lg-12">
+       <h1 class="page-header">
+      
+      
+       </h1>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+<div class="card">
+	<div class="row">
+	   <div class="col-lg-12">
+	       <div class="panel panel-default">
+	       	<div class="panel-heading">
+	                <i class="fa fa-home fa-fw fa-2x"></i> <strong>Unidades do Usuário </strong><strong>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-3" th:each="resumo : ${unidadesUsuario}">
+	        		<div class="panel panel-default card">
+	        			<div class="panel-heading">
+		        			<div class="row">
+		        				<div class="col-md-9">
+		        					<a th:href="@{'#dashboard/'+${resumo.ano}+'/'+${resumo.unidade.id}}" style="text-decoration: none;color:inherit;">
+					        			<i class="fa fa-home fa-fw"></i> <strong><span th:text="${resumo.unidade.nome}"></span></strong>
+					        		</a>
+					        	</div>
+					        	<div class="col-md-3">
+		                       		<i th:if="${resumo.countAtrasados == 0}" class="fa glyphicon-check fa-1x text-success"></i>
+		                       		<i th:if="${resumo.countAtrasados > 0}" class="fa fa-warning fa-1x text-danger"></i>
+		                       		
+		                       		<i th:if="${resumo.countPendenciasPlanejamento == 0}" class="fa fa-check fa-1x  text-success"></i>
+		                       		<i th:if="${resumo.countPendenciasPlanejamento > 0}" class="fa fa-times fa-1x text-danger"></i>
+		                       	</div>
+					        </div>
+				        </div>
+				        <div class="panel-body">
+				        	<div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.indicadoresCount}"></span>
+								   <strong>Indicadores</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countEmAndamento}"></span>
+								   Andamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countEmPlanejamento}"></span>
+								   Planejados
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countAtrasados}"></span>
+								   Atrasadas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countConcluidos}"></span>
+								   Concluídos
+								  </li>
+								</ul>
+	                         </div>
+	                         <div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countPendencias}"></span>
+								   <strong>Pendências</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countPendenciasPlanejamento}"></span>
+								   Planejamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countPendenciasPrazo}"></span>
+								   Prazos
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countPendenciasAlerta}"></span>
+								   Alertas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small" th:text="${resumo.countPendenciasAviso}"></span>
+								   Avisos
+								  </li>
+								</ul>
+								<a th:href="@{'#pendencias/'+${resumo.unidade.id}}">
+									Detalhes
+								</a>
+	                         </div>
+				        </div>
+	        		</div>
+	        	</div>
+	        </div>
+	       
+	       </div>
+	    </div>
+	</div>
+	<hr/>
+	<div class="row">
+	   <div class="col-lg-12">
+	   		<button type="button" class="btn btn-lg btn-default" ng-click="exibirUnidades(1297,'campus');" ng-show="!todosCampusCollapsed">
+	   			<i class="fa fa-building-o fa-fw fa-2x"></i>
+	   			Todos os Campus
+	   		</button>
+	   		
+	       	<div class="panel panel-default" uib-collapse="!todosCampusCollapsed">
+	       	<div class="panel-heading">
+	                <i class="fa fa-building-o fa-fw fa-2x"></i> <strong>Todos os Campus</strong>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-3" ng-repeat="resumo in unidadesCampus">
+	        		<div class="panel panel-default card">
+	        			<div class="panel-heading">
+				        	<div class="row">
+				        		<div class="col-md-9">
+				        			<a href="#dashboard/{{resumo.ano}}/{{resumo.unidade.id}}" class="nounderline" style="text-decoration: none;color:inherit;">
+				        				<i class="fa fa-building-o fa-fw"></i> <strong>{{resumo.unidade.sigla}}</strong>
+				        			</a>
+				        		</div>
+				        		<div class="col-md-3">
+		                       		<i ng-if="resumo.countAtrasados == 0" class="fa glyphicon-check fa-1x text-success"></i>
+		                       		<i ng-if="resumo.countAtrasados > 0" class="fa fa-warning fa-1x text-danger"></i>
+		                       		
+		                       		<i ng-if="resumo.countPendenciasPlanejamento == 0" class="fa fa-check fa-1x  text-success"></i>
+		                       		<i ng-if="resumo.countPendenciasPlanejamento > 0" class="fa fa-times fa-1x text-danger"></i>
+		                       	</div>
+		                     </div>
+				        </div>
+				         <div class="panel-body">  	
+				        	<div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.indicadoresCount}}</span>
+								   <strong>Indicadores</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countEmAndamento}}</span>
+								   Andamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countEmPlanejamento}}</span>
+								   Planejados
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countAtrasados}}</span>
+								   Atrasadas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countConcluidos}}</span>
+								   Concluídos
+								  </li>
+								</ul>
+	                         </div>
+	                         <div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendencias}}</span>
+								   <strong>Pendências</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasPlanejamento}}</span>
+								   Planejamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasPrazo}}</span>
+								   Prazos
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasAlerta}}</span>
+								   Alertas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasAviso}}</span>
+								   Avisos
+								  </li>
+								</ul>
+	                         </div>
+	                         
+				        </div>
+	        		</div>
+	        	</div>
+	        </div>
+	       
+	       </div>
+	    </div>
+	</div>
+	<hr/>
+	<div class="row">
+	   <div class="col-lg-12">
+	   		<button type="button" class="btn btn-lg btn-default" ng-click="exibirUnidades(1297,'reitoria');" ng-show="!reitoriaCollapsed">
+		   		<i class="fa fa-university fa-fw fa-2x"></i>
+		   		Unidades Reitoria
+	   		</button>
+	       	<div class="panel panel-default" uib-collapse="!reitoriaCollapsed">
+	       	<div class="panel-heading">
+	                <i class="fa fa-university fa-fw fa-2x"></i> <strong>Unidades Reitoria</strong>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-3" ng-repeat="resumo in unidadesReitoria">
+	        		<div class="panel panel-default card">
+	        			<div class="panel-heading">
+	        				<div class="row">
+	        					<div class="col-md-9">
+	        						<a href="#dashboard/{{resumo.ano}}/{{resumo.unidade.id}}" class="nounderline" style="text-decoration: none;color:inherit;">
+					        			<i class="fa fa-university fa-fw"></i> <strong>{{resumo.unidade.nome}}</strong>
+					        		</a>
+					        	</div>
+					        	<div class="col-md-3">
+		                       		<i ng-if="resumo.countAtrasados == 0" class="fa glyphicon-check fa-1x text-success"></i>
+		                       		<i ng-if="resumo.countAtrasados > 0" class="fa fa-warning fa-1x text-danger"></i>
+		                       		
+		                       		<i ng-if="resumo.countPendenciasPlanejamento == 0" class="fa fa-check fa-1x  text-success"></i>
+		                       		<i ng-if="resumo.countPendenciasPlanejamento > 0" class="fa fa-times fa-1x text-danger"></i>
+		                       	</div>
+	                       	</div>
+	                       
+				        </div>
+				        <div class="panel-body">
+				        	
+				        	<div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.indicadoresCount}}</span>
+								   <strong>Indicadores</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countEmAndamento}}</span>
+								   Andamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countEmPlanejamento}}</span>
+								   Planejados
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countAtrasados}}</span>
+								   Atrasadas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countConcluidos}}</span>
+								   Concluídos
+								  </li>
+								</ul>
+	                         </div>
+	                         <div class="col-md-6 box">
+					        	<ul class="list-group text-muted">
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendencias}}</span>
+								   <strong>Pendências</strong>
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasPlanejamento}}</span>
+								   Planejamento
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasPrazo}}</span>
+								   Prazos
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasAlerta}}</span>
+								   Alertas
+								  </li>
+								  <li class="list-group-item">
+								    <span class="badge badge-small">{{resumo.countPendenciasAviso}}</span>
+								   Avisos
+								  </li>
+								</ul>
+	                         </div>
+				        </div>
+	        		</div>
+	        	</div>
+	        </div>
+	       
+	       </div>
+	    </div>
+	</div>
+</div>
+	

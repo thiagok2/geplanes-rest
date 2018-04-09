@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<div class="row">
+   <div class="col-lg-12">
+       <h1 class="page-header">
+      
+      
+       </h1>
+   </div>
+   <!-- /.col-lg-12 -->
+</div>
+<div ng-controller="pendenciaController as pc">
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-primary">
+		       	<div class="panel-heading">
+		                <i class="fa fa-search fa-fw"></i> <strong>Pesquisar</strong>
+		        </div>
+		        <div class="panel-content">
+		        	<input class="form-control" ng-model="queryPendencia" placeholder="Pesquisar por... responsável, indicador, ação, aviso, alerta, planejamento, prazo"/>
+		        </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-primary">
+		       	<div class="panel-heading">
+		            <i class="fa fa-bell-o fa-fw"></i> <strong>Pendências ({{pc.dataPendencias.length}})</strong>
+		        </div>
+		        <div class="panel-content">
+		        	<div class="table-responsive">
+		        	<table class="table table-striped table-bordered table-hover">
+		        		<thead>
+		        			<tr>
+		        				<th></th>
+		        				<th>Título</th>
+		        				<th>Mensagem</th>
+		        				<th>Responsável</th>
+		        				<th>Detalhes</th>
+		        			</tr>
+		        		</thead>
+		        		<tbody class="text-muted">
+		        			<tr dir-paginate="p in pc.dataPendencias | filter:queryPendencia | itemsPerPage:pc.itensPorPagina" 
+		        				ng-click="pc.detalhesResolver(p);">
+		        				<td>
+		        					<i ng-if="p.info" class="fa fa-info-circle fa-2x text-info"></i>
+		        					<i ng-if="p.aviso" class="fa fa-warning fa-2x text-warning"></i>
+		        					<i ng-if="p.alerta" class="fa fa-warning fa-2x text-danger"></i>
+		        					
+		        					<i ng-if="p.fase == 'PLANEJAMENTO'" class="fa fa-tasks fa-2x text-info"></i>
+		        					<i ng-if="p.fase == 'RESULTADOS'" class="fa fa-sign-out fa-2x"></i>
+		        					<i ng-if="p.fase == 'PRAZO'" class="fa fa-clock-o fa-2x"></i>  
+		        					
+		        				</td>
+		        				<td>{{p.titulo}}</td>
+		        				<td>
+		        					{{p.mensagem}}
+		        				</td>
+		        				<td>{{p.responsavel}}</td>
+		        				<td>
+		        					<small class="text-muted">
+		        						<strong>{{p.identificador}}</strong>
+		        						<br/>
+		        						{{p.demandaResumo}}
+		        						<br/>
+		        						{{p.data| date :  "dd/MM/yyyy"}}
+		        					</small>
+		        				</td>
+		        			</tr>
+		        		</tbody>
+		        	</table>
+		        	 <div class="text-center">
+
+			             <dir-pagination-controls
+						                max-size="5"
+						                direction-links="true"
+						                boundary-links="true" >
+						</dir-pagination-controls>
+		             </div>
+		        	</div>
+				</div>
+			</div>
+		</div>
+	   	<pre>Linhas por página: {{pc.itemsPerPage}} - {{pc.viewby}}</pre>
+	   	<pre>Página: {{pc.currentPage}} / {{pc.numPages}}</pre>
+	</div>
+</div>
